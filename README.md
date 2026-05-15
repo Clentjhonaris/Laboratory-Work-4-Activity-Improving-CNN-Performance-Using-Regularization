@@ -64,6 +64,65 @@ This image presents a Grad-CAM visualization from the LW4 Improved CNN model cla
 **Description:**
 Grad-CAM illustrates how the neural network makes its classification decision by highlighting the image regions that contributed most to the prediction. In the provided image, the heatmap and overlay spread across almost the entire fig tree rather than focusing on a single distinctive feature. This suggests that the LW4 Improved CNN model considered multiple parts of the plant, including the leaves and overall structure, when classifying the image as a fig tree with 96.0% confidence.
 
+---
+
+# Activity 3: Model Enhancement and Performance Optimization
+
+
+### 7. Train Improved Model (using 20 epochs)
+<img width="1221" height="756" alt="image" src="https://github.com/user-attachments/assets/dd035688-7530-4ef7-ae98-f7dd00af4598" />
+<img width="1216" height="461" alt="image" src="https://github.com/user-attachments/assets/59e2f921-33da-4f56-afd5-96bb53df413e" />
+
+**Description:**
+The training logs illustrate the steady improvement of the LW4 Improved CNN model across multiple epochs. At the beginning of training, the model showed low accuracy and high loss values, indicating limited learning performance. However, as the epochs progressed, both training and validation accuracy consistently increased while the loss gradually decreased. By the later epochs, the model achieved significantly better accuracy with lower validation loss, suggesting that the network successfully learned the image features and improved its classification capability. The relatively close training and validation results also indicate that the model generalized well without severe overfitting.
+
+---
+
+### 8. Improved Classification Report
+<img width="573" height="497" alt="image" src="https://github.com/user-attachments/assets/9e98db7a-3ad0-41c6-a2b5-6421a973aa30" />
+
+**Description:**
+This image displays a machine learning classification report for a Convolutional Neural Network (CNN) model called LW4 Improved CNN, designed to identify 20 different tree species. The report presents four key metrics for each class: precision (how often the model's predictions are correct), recall (how well the model finds all actual instances), F1-score (the balance between precision and recall), and support (the number of test samples per class).
+
+---
+
+### 9. Improved Confusion Matrix
+<img width="868" height="790" alt="image" src="https://github.com/user-attachments/assets/79ce9fe8-ef36-4c29-9946-a31a8f09cfc8" />
+
+**Description:**
+The image presents a Confusion Matrix for the LW4 Improved CNN model, which visualizes the performance of a tree species classification system across 20 different classes. The matrix is color-coded using a dark blue gradient, where darker shades represent higher prediction counts, making it easy to identify where the model performs well versus where it makes errors. The diagonal cells, which represent correct predictions, are predominantly the darkest in each row, confirming that the model generally classifies most tree species accurately. Notably strong performers include White Oak Tree with 63 correct predictions, Hawthorn Tree with 64, Maple Tree with 57, and Crepe Myrtle Tree with 58, all showing deep blue diagonal values with minimal misclassifications scattered across their rows.
+
+---
+
+### 10. Improved (ROC) Curve and Area Under the Curve (AUC) Score
+<img width="1064" height="691" alt="image" src="https://github.com/user-attachments/assets/a6bd6aa5-0994-4195-9322-c60dc00ee1a9" />
+
+**Description:**
+The image displays the Receiver Operating Characteristic (ROC) Curve for the LW4 Improved CNN model, which evaluates the classification performance of the model across all 20 tree species. The ROC curve plots the True Positive Rate (sensitivity) against the False Positive Rate (1 - specificity) for each class, and an ideal classifier would hug the top-left corner of the graph, indicating high sensitivity with minimal false positives. The dashed diagonal line running from the bottom-left to the top-right represents a random classifier with no discriminative ability, serving as a baseline reference. All 20 class curves are positioned far above this diagonal line and rise steeply toward the top-left corner, demonstrating that the LW4 Improved CNN model is a strong and reliable classifier across all tree species.
+
+### Compare Results (Before vs After)
+<img width="501" height="254" alt="image" src="https://github.com/user-attachments/assets/c3c76316-9527-4f75-bcfa-c7523c245d2c" />
+
+---
+
+## 12. GUIDE QUESTIONS
+
+**A. Model Evaluation Analysis**
+
+
+**A. Model Evaluation Analysis**
+
+**1. What were the weakest-performing classes based on the confusion matrix?**<br>
+Based on the confusion matrix, the weakest-performing classes were European Beech Tree, Beech Tree, and White Ash Tree. European Beech Tree was the most problematic, with only 25 correct predictions out of 57 samples, and 12 of those samples were misclassified as Beech Tree. This heavy confusion between the two species stems from their extremely similar visual characteristics, including leaf shape, vein structure, bark texture, and overall tree morphology. White Ash Tree also underperformed noticeably, with misclassifications scattered across several other classes, while Cottonwood Tree had 9 samples incorrectly labeled as White Oak Tree. These results collectively reveal that the model's primary weakness lies in distinguishing between species that share close physical resemblance, and these classes would benefit most from additional and more diverse training samples or more targeted feature learning strategies.
+
+**2. How did Precision, Recall, and F1-score vary across classes?**<br>
+There was considerable variation in precision, recall, and F1-score across the 20 tree species. At the top end, Maple Tree achieved near-perfect performance with precision of 1.00, recall of 0.98, and F1-score of 0.99, while Crepe Myrtle Tree, Hawthorn Tree, and Tulip Tree all scored 0.96 in F1, reflecting strong and well-balanced classification. At the lower end, European Beech Tree recorded precision of 0.68, recall of only 0.44, and an F1-score of 0.53, making it the weakest-performing class. Certain classes exhibited high precision but significantly lower recall, such as Basswood Tree with precision of 0.94 but recall of 0.68, indicating the model was confident in its predictions for that class but frequently failed to identify all actual instances of it. This variation reflects that the model learned highly discriminative features for visually distinct species but struggled considerably with classes where inter-species visual similarity caused frequent and consistent misclassifications.
+
+
+
+
+
+
 
 
 
