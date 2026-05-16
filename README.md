@@ -118,6 +118,49 @@ Based on the confusion matrix, the weakest-performing classes were European Beec
 **2. How did Precision, Recall, and F1-score vary across classes?**<br>
 There was considerable variation in precision, recall, and F1-score across the 20 tree species. At the top end, Maple Tree achieved near-perfect performance with precision of 1.00, recall of 0.98, and F1-score of 0.99, while Crepe Myrtle Tree, Hawthorn Tree, and Tulip Tree all scored 0.96 in F1, reflecting strong and well-balanced classification. At the lower end, European Beech Tree recorded precision of 0.68, recall of only 0.44, and an F1-score of 0.53, making it the weakest-performing class. Certain classes exhibited high precision but significantly lower recall, such as Basswood Tree with precision of 0.94 but recall of 0.68, indicating the model was confident in its predictions for that class but frequently failed to identify all actual instances of it. This variation reflects that the model learned highly discriminative features for visually distinct species but struggled considerably with classes where inter-species visual similarity caused frequent and consistent misclassifications.
 
+**3. What does a low recall indicate in your model?** <br>
+A low recall indicates that the model missed many actual positive cases, producing a high number of false negatives. This means the model may not effectively detect all relevant instances, which can be problematic in tasks where missing positives is critical.
+
+**4. How does AUC score reflect model performance compared to accuracy?** <br>
+while accuracy only measures correct predictions at a single threshold. A higher AUC provides a more reliable indication of overall classification strength, especially when dealing with class imbalance.       
+
+**B. Model Improvement**
+
+**5. How did data augmentation affect validation accuracy?** <br>
+Data augmentation improved validation accuracy by artificially increasing dataset diversity through transformations such as rotation, flipping, and zooming. This helped the model generalize better and reduced overfitting, leading to stronger validation performance.
+
+**6. Why is Batch Normalization important in CNNs?** <br>
+Batch Normalization normalizes activations between layers, which stabilizes training, speeds up convergence, and allows the network to train more efficiently. It also provides mild regularization and improves generalization.
+
+**7. What role did Dropout play in improving your model?** <br>
+Dropout reduced overfitting by randomly deactivating neurons during training, forcing the network to learn more generalized features instead of memorizing training data. This improved validation accuracy and robustness.
+
+**8. How did Early Stopping prevent overfitting?**<br>
+Early Stopping monitored validation loss and stopped training when performance no longer improved. This prevented unnecessary training beyond the optimal point, reducing memorization of training data and preserving better generalization.
+
+**C. Performance Comparison**
+
+**9. What improvements were observed after modifying the model?**<br>
+After modifying the model architecture and training strategy, several significant improvements were observed across multiple performance metrics. The enhanced CNN demonstrated higher training and validation accuracy, indicating that the model became better at learning meaningful patterns from the dataset while also generalizing more effectively to unseen data. Validation loss decreased compared to the baseline model, which suggests that prediction errors on new data were reduced.
+
+**10. Which enhancement contributed the most to performance improvement? Why?**<br>
+Data augmentation likely contributed the most because it exposed the model to more diverse image variations, significantly improving generalization and reducing overfitting more than architecture-only changes.
+
+**11. Did the gap between training and validation accuracy decrease? Explain.** <br>
+Yes, the gap between training and validation accuracy decreased significantly after the model was improved, which is a strong indication that overfitting was reduced. In the baseline model, training accuracy was likely much higher than validation accuracy, meaning the model was learning the training data too specifically and struggling to generalize to unseen samples. This large performance gap suggested that the model was memorizing patterns rather than learning robust features.
+
+**D. Explainability (Grad-CAM Integration)**
+
+**12. How did Grad-CAM help in understanding model predictions?**<br>
+Grad-CAM (Gradient-weighted Class Activation Mapping) significantly improved understanding of model predictions by providing visual explanations of which regions in an image most influenced the CNN’s classification decisions. Instead of treating the model as a complete black box, Grad-CAM generated heatmaps that highlighted the most important areas the network focused on during prediction.
+
+**13. Did the improved model focus on more relevant regions? Provide evidence.**<br>
+Yes, the improved model focused more consistently on relevant regions, as demonstrated through clearer and more precise Grad-CAM heatmaps. In the baseline model, visualizations may have shown scattered or partially incorrect attention, where the network focused on irrelevant background elements or broader image areas that were not directly tied to the target class. This suggested weaker feature extraction and less reliable prediction logic.
+
+**14. Why is explainability important in real-world AI applications?**<br>
+Explainability is crucial in real-world AI applications because it allows humans to understand how and why a model makes specific decisions. Deep learning models, especially CNNs, are often considered “black boxes” because their internal processes are highly complex and difficult to interpret. Without explainability, users may not trust model predictions, particularly in high-stakes domains such as healthcare, finance, law enforcement, and autonomous systems.
+
+
 
 
 
